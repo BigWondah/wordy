@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 // const { Post } = require('./models/post')
 const { postRouter } = require('./routes/postRoute')
 const { mainRouter } = require('./routes/mainRoute')
+const dotenv = require('dotenv').config();
+
+const PORT  = process.env.PORT || 5000
 
 // initializing the app
 const app = express()
@@ -18,8 +21,8 @@ app.use(express.urlencoded({ extended: true }))
 // connecting to the database
 let dbURI = 'mongodb+srv://boiwondah:boiwondah@boiwondah.7391b.mongodb.net/wordy?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
-    app.listen(5000, () => {
-    console.log('Server listening on port 5000...')
+    app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`)
 })
 }).catch((error) => {
     console.log(error)
