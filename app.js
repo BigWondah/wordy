@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // connecting to the database
-let dbURI = 'mongodb+srv://boiwondah:boiwondah@boiwondah.7391b.mongodb.net/wordy?retryWrites=true&w=majority'
+let dbURI = process.env.MONGO_URI
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
