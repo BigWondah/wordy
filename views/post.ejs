@@ -22,10 +22,13 @@
                 <p class="fs-4">
                     <%= post.content %>
                 </p>
+
+                <% if (user && user._id.toString() == post.author?._id.toString()) { %> 
                 <dvi class="d-flex justify-content-between">
                     <a class="btn btn-primary btn-lg" type="button" href="/posts/update_post/<%= post._id %>">Update</a>
                     <a class="btn btn-danger btn-lg" id="delete" type="button" data-postid ="<%= post._id %>">Delete</a>
                 </dvi>
+                <% } %> 
             </div>
 
             <script>

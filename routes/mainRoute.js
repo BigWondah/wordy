@@ -5,7 +5,9 @@ const mainRouter = express.Router()
 
 
 mainRouter.get('/', (req, res) => {
-    Post.find().sort({ createdAt: -1 })
+    Post.find()
+        .populate('author')
+        .sort({ createdAt: -1 })
         .then((result) => {
         // console.log(result)
         res.render('home', { posts: result})
